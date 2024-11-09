@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var clipboardHistory: [String] = []
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        List(clipboardHistory, id: \.self) {
+            item in Text(item)
         }
-        .padding()
+        .frame(width: 300, height: 400)
+        .onAppear()
     }
 }
 
